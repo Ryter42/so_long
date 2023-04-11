@@ -59,14 +59,14 @@ int	chargeimage(t_data *data)
 	int	a;
 
 	data->image->perso = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./XPM/kratos.xpm", &a, &a);
-	data->image->exit = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/exit.xpm",
+			"./XPM/player.xpm", &a, &a);
+	data->image->exit = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/panier.xpm",
 			&a, &a);
 	data->image->item = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./XPM/collect.xpm", &a, &a);
-	data->image->mur = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/mur.xpm",
+			"./XPM/ballon.xpm", &a, &a);
+	data->image->mur = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/feu.xpm",
 			&a, &a);
-	data->image->sol = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/ground.xpm",
+	data->image->sol = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/sol.xpm",
 			&a, &a);
 	return (1);
 }
