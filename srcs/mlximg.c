@@ -62,16 +62,16 @@ int	mlx(t_data *data)
 {
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
-		return (NULL);
+		return (0);
 	data->win_ptr = mlx_new_window(data->mlx_ptr, data->stmap->c * 64, data->stmap->l * 64, "so_long");
 	if (!data->win_ptr)
 	{
 		free(data->win_ptr);
-		return (NULL);
+		return (0);
 	}
 	chargewindow(data);
 	mlx_hook(data->win_ptr, 17, 0, mlx_loop_end, data->mlx_ptr);
-	mlx_key_hook(data->win_ptr, touch, 0)
+	mlx_key_hook(data->win_ptr, touch, 0);
 	mlx_loop(data->mlx_ptr);
 	return (0);
 }
