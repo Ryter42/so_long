@@ -27,7 +27,7 @@ OBJS = $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 NAME	=	so_long
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -g3
-LDLIBS 	= -I includes/
+LDLIBS 	= -I./includes/ -I./libft/includes/
 RM		=	rm -rf
 
 all:	${NAME}
