@@ -15,8 +15,6 @@
 # include "../libft/includes/libft.h"
 # include "../mlx/mlx_int.h"
 # include "../mlx/mlx.h"
-// # include "../printf/ft_printf.h"
-// # include "../mlx_linux/mlx.h"
 # include <fcntl.h>
 
 typedef struct s_map
