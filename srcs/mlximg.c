@@ -71,7 +71,7 @@ int	mlx(t_data *data)
 	}
 	chargewindow(data);
 	mlx_hook(data->win_ptr, 17, 0, mlx_loop_end, data->mlx_ptr);
-	mlx_key_hook(data->win_ptr, touch, 0);
+	mlx_key_hook(data->win_ptr, &touch, 0);
 	mlx_loop(data->mlx_ptr);
 	return (0);
 }
