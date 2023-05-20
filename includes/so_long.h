@@ -6,15 +6,17 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 00:54:22 by emoreau           #+#    #+#             */
-/*   Updated: 2023/04/11 18:00:22 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/20 19:58:31 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG
 # define SO_LONG
 # include "../libft/includes/libft.h"
-# include "../mlx/mlx_int.h"
 # include "../mlx/mlx.h"
+# include "../mlx/mlx_int.h"
+// # include "../printf/ft_printf.h"
+// # include "../mlx_linux/mlx.h"
 # include <fcntl.h>
 
 typedef struct s_map
@@ -35,8 +37,8 @@ typedef struct s_image
 	void	*item;
 	void	*perso;
 	void	*sol;
-	
-}	t_image;
+
+}			t_image;
 
 typedef struct s_data
 {
@@ -44,7 +46,8 @@ typedef struct s_data
 	t_image	*image;
 	void	*mlx_ptr;
 	void	*win_ptr;
-	
+	int		nbr_move;
+
 }			t_data;
 
 int			path(t_data *data);
@@ -68,16 +71,18 @@ int			colonechr(char *str);
 int			around(char **map, int x, int y);
 void		changemap(char *map);
 int			charverif(char c);
-int			xplace(char **map);
-int			yplace(char **map);
 int			structinit(t_data **data, char *file);
 void		errormessage(int m);
 void		printmap(t_data *data);
 char		**get_map(char *file);
 int			othercheck(char **map);
-int	mlx(t_data *data);
-int	chargeimage(t_data *data);
-int	chargewindow(t_data *data);
-int	putimg(t_data *data, char c, int x, int y);
+int			get_position(t_data *data);
+int			mlx(t_data *data);
+int			chargeimage(t_data *data);
+int			chargewindow(t_data *data);
+int			putimg(t_data *data, char c, int x, int y);
+void		free_all(t_data *data);
+void		free_map(char **map);
+void		free_image(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 15:57:33 by emoreau           #+#    #+#             */
-/*   Updated: 2022/11/19 16:16:01 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/20 20:39:47 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-/*
-int main(void)
-{
-    char tab[] = "youuuuutube";
-    char c = 'u';
-    int cc = c;
-    printf("%d", ft_strrchr(tab, cc));
-	return (0);
-}
-*/

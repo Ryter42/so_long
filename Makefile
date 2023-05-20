@@ -27,14 +27,13 @@ OBJS = $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 NAME	=	so_long
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -g3
-LDLIBS 	= -I./includes/ -I./libft/includes/
 RM		=	rm -rf
 
 all:	${NAME}
 
 $(NAME):	$(OBJS)
-	$(MAKE) -C libft
-	$(CC) $(CFLAGS) -o $(NAME) $(LDLIBS) $(OBJS)
+	$(MAKE) -C libft && $(MAKE) -C mlx
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) mlx/libmlx_Linux.a libft/libft.a -lXext -lX11 -I ./mlx/
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(@D)

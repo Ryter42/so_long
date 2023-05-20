@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:37:03 by emoreau           #+#    #+#             */
-/*   Updated: 2023/04/11 18:06:36 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/20 21:02:00 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,33 +132,64 @@ int	main(int argc, char **argv)
 		return (errormessage(2), 0);
 	if (structinit(&data, argv[1]) == 0)
 		return (errormessage(1), 0);
-	printmap(data);
+	// printmap(data);
 	if (mapchecker(data) < 0)
 		return (errormessage(mapchecker(data)), 0);
 	mlx(data);
+	free_all(data);
 }
 
-// while (data->stmap->map[i])
-// {
-// 	free(data->stmap->map[i]);
-// 	i++;
-// }
-// free(data->stmap->map);
-// free(data->stmap);
-// free(data);
 
-// t_img	*img;
-// int		img_width;
-// int		img_height;
+void free_all(t_data *data)
+{
+	printf("free OK\n");
+	if (data->stmap->map)
+		free_map(data->stmap->map);
+	if (data->stmap->map2)
+		free_map(data->stmap->map2);
+	if (data->stmap)
+		free(data->stmap);
+	if (data->image)
+		free_image(data);
+	if (data->win_ptr)
+	{
+		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	}
+	if (data->mlx_ptr)
+	{
+		mlx_destroy_display(data->mlx_ptr);
+		free(data->mlx_ptr);
+	}
+	free(data);
+}
 
-// while (1)
-// mlx_destroy_window(mlx_ptr, win_ptr);
-// mlx_destroy_display(mlx_ptr);
-// free(mlx_ptr);
+void	free_map(char **map)
+{
+	printf("map OK \n");
+	int	i;
 
-// render
-// 	x, y;
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
 
-// 	while map[y]
-// 		while map[y][x]
-// 			afficher image position x * SIZE y * SIZE
+void	free_image(t_data *data)
+{
+	printf("image OK\n");
+	if (data->image->item)
+		mlx_destroy_image(data->mlx_ptr, data->image->item);
+	if (data->image->perso)
+		mlx_destroy_image(data->mlx_ptr, data->image->perso);
+	if (data->image->exit)
+		mlx_destroy_image(data->mlx_ptr, data->image->exit);
+	if (data->image->mur)
+		mlx_destroy_image(data->mlx_ptr, data->image->mur);
+	if (data->image->sol)
+		mlx_destroy_image(data->mlx_ptr, data->image->sol);
+	free(data->image);
+}

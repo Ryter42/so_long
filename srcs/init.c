@@ -6,65 +6,68 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:34:05 by emoreau           #+#    #+#             */
-/*   Updated: 2023/04/11 18:15:09 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/20 18:56:46 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	xplace(char **map)
+int	get_position(t_data *data)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	j = 0;
-	while (map[i])
+	while (data->stmap->map[i])
 	{
-		while (map[i][j])
+		j = 1;
+		while (data->stmap->map[i][j])
 		{
-			if (map[i][j] == 'P')
-				return (j);
+			if (data->stmap->map[i][j] == 'P')
+			{
+				data->stmap->x = j;
+				data->stmap->y = i;
+				return (0);
+			}
 			j++;
 		}
-		j = 0;
 		i++;
 	}
 	return (0);
 }
 
-int	yplace(char **map)
-{
-	int	i;
-	int	j;
+// int	yplace(char **map)
+// {
+// 	int	i;
+// 	int	j;
 
-	i = 1;
-	j = 0;
-	while (map[i])
-	{
-		while (map[i][j])
-		{
-			if (map[i][j] == 'P')
-				return (i);
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	return (0);
-}
+// 	i = 1;
+// 	j = 0;
+// 	while (map[i])
+// 	{
+// 		while (map[i][j])
+// 		{
+// 			if (map[i][j] == 'P')
+// 				return (i);
+// 			j++;
+// 		}
+// 		j = 0;
+// 		i++;
+// 	}
+// 	return (0);
+// }
 
 int	chargeimage(t_data *data)
 {
 	int	a;
 
 	data->image->perso = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./XPM/player.xpm", &a, &a);
+			"./XPM/basketeur.xpm", &a, &a);
 	data->image->exit = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/panier.xpm",
 			&a, &a);
 	data->image->item = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./XPM/ballon.xpm", &a, &a);
-	data->image->mur = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/feu.xpm",
+	data->image->mur = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/arbre.xpm",
 			&a, &a);
 	data->image->sol = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/sol.xpm",
 			&a, &a);
@@ -88,7 +91,8 @@ int	structinit(t_data **data, char *file)
 	(*data)->stmap->map2 = get_map(file);
 	(*data)->stmap->l = lenmap((*data)->stmap->map);
 	(*data)->stmap->c = ft_strlen((*data)->stmap->map[0]);
-	(*data)->stmap->x = xplace((*data)->stmap->map);
-	(*data)->stmap->y = yplace((*data)->stmap->map);
+	get_position(*data);
+	(*data)->stmap->items = itemcheck((*data)->stmap->map);
+	(*data)->nbr_move = 0;
 	return (1);
 }
