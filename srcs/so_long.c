@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:37:03 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/20 21:02:00 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/21 19:27:33 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	backslashmap(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == '\n' && str[i + 1] == '\n')
+		if (str [0] == '\n' || (str[i] == '\n' && str[i + 1] == '\n'))
 			return (0);
 		i++;
 	}
@@ -59,9 +59,10 @@ char	**get_map(char *file)
 		tmp = get_next_line(fd);
 	}
 	if (backslashmap(str) == 0)
-		return (NULL);
+		return (free (str), NULL);
 	map = ft_split(str, '\n');
 	close(fd);
+	free(str);
 	return (map);
 }
 
@@ -142,7 +143,6 @@ int	main(int argc, char **argv)
 
 void free_all(t_data *data)
 {
-	printf("free OK\n");
 	if (data->stmap->map)
 		free_map(data->stmap->map);
 	if (data->stmap->map2)
@@ -166,7 +166,6 @@ void free_all(t_data *data)
 
 void	free_map(char **map)
 {
-	printf("map OK \n");
 	int	i;
 
 	i = 0;
@@ -180,7 +179,6 @@ void	free_map(char **map)
 
 void	free_image(t_data *data)
 {
-	printf("image OK\n");
 	if (data->image->item)
 		mlx_destroy_image(data->mlx_ptr, data->image->item);
 	if (data->image->perso)

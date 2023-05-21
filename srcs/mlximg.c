@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:07:19 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/20 19:01:47 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/21 17:56:28 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,9 +185,11 @@ int	touch(int keycode, t_data *data)
 int	mlx(t_data *data)
 {
 	data->mlx_ptr = mlx_init();
+	if (!data->mlx_ptr)
+		exit(EXIT_FAILURE);
 	data->win_ptr = mlx_new_window(data->mlx_ptr, data->stmap->c * 64,
-			data->stmap->l * 64, "My first window!");
-	// while (startcheck(data->stmap->map) > 0)
+			data->stmap->l * 64, "So_long");
+		
 	chargeimage(data);
 	chargewindow(data);
 	mlx_hook(data->win_ptr, 17, 0, mlx_loop_end, data->mlx_ptr);
