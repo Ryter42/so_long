@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:37:03 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/21 19:27:33 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 17:39:07 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ char	**get_map(char *file)
 		return (NULL);
 	// if(namemap(file) == 0)
 	// 	return (NULL);
-	str = get_next_line(fd);
+	str = NULL;
 	tmp = get_next_line(fd);
 	while (tmp)
 	{
-		str = ft_strjoin(str, tmp);
+		str = ft_gnl_strjoin(str, tmp);
 		free(tmp);
 		tmp = get_next_line(fd);
 	}
@@ -86,7 +86,8 @@ void	printmap(t_data *data)
 	}
 }
 
-int	mapchecker(t_data *data)
+int	
+mapchecker(t_data *data)
 {
 	int	len;
 
@@ -120,22 +121,23 @@ void	errormessage(int m)
 	if (m == 2)
 		ft_printf("trop ou pas assez d'argument");
 	if (m == -6)
-		ft_printf("ily a un caractere bizare la non ?");
+		ft_printf("il y a un caractere bizare la non ?");
 	// 	if (m == 1)
 	// 		ft_printf("c'est good");
 }
 
 int	main(int argc, char **argv)
 {
+	int		error;
 	t_data	*data;
 
 	if (argc != 2)
 		return (errormessage(2), 0);
 	if (structinit(&data, argv[1]) == 0)
-		return (errormessage(1), 0);
-	// printmap(data);
-	if (mapchecker(data) < 0)
-		return (errormessage(mapchecker(data)), 0);
+		return (free_all(data), errormessage(1), 0);
+	error = mapchecker(data);
+	if (error < 0)
+		return (free_all(data), errormessage(error), 0);
 	mlx(data);
 	free_all(data);
 }

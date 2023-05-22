@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:34:05 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/20 18:56:46 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 17:41:50 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,14 @@ int	structinit(t_data **data, char *file)
 	(*data)->image = malloc(sizeof(t_image));
 	if (!(*data)->image)
 		return (0);
+	(*data)->mlx_ptr = NULL;
+	(*data)->win_ptr = NULL;
+	(*data)->image->perso = NULL;
+	(*data)->image->exit = NULL;
+	(*data)->image->item = NULL;
+	(*data)->image->mur = NULL;
+	(*data)->image->sol = NULL;
+	(*data)->stmap->map2 = NULL;
 	(*data)->stmap->map = get_map(file);
 	if (!(*data)->stmap->map)
 		return (0);
