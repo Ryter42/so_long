@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:27:43 by emoreau           #+#    #+#             */
-/*   Updated: 2023/04/01 00:28:53 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 17:52:58 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,5 @@ int	path(t_data *data)
 	x = data->stmap->x;
 	y = data->stmap->y;
 	pathmap = pathfinding(data->stmap->map2, x, y);
-	// ft_printf("---pathmap___\n\n");
-	// while (*pathmap)
-	// {
-	// 	ft_printf("%s\n", *pathmap);
-	// 	pathmap++;
-	// }
-	
-	// ft_printf("\n\n---pathmap---");
 	return (veripath(pathmap));
 }

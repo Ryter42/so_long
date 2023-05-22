@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 00:54:22 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/20 19:58:31 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 18:02:49 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,10 @@ int			mlx(t_data *data);
 int			chargeimage(t_data *data);
 int			chargewindow(t_data *data);
 int			putimg(t_data *data, char c, int x, int y);
+int 		ft_haut(t_data *data);
+int 		ft_bas(t_data *data);
+int 		ft_gauche(t_data *data);
+int 		ft_droite(t_data *data);
 void		free_all(t_data *data);
 void		free_map(char **map);
 void		free_image(t_data *data);

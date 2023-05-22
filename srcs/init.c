@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:34:05 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/22 17:41:50 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 18:11:15 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,6 @@ int	get_position(t_data *data)
 	return (0);
 }
 
-// int	yplace(char **map)
-// {
-// 	int	i;
-// 	int	j;
-
-// 	i = 1;
-// 	j = 0;
-// 	while (map[i])
-// 	{
-// 		while (map[i][j])
-// 		{
-// 			if (map[i][j] == 'P')
-// 				return (i);
-// 			j++;
-// 		}
-// 		j = 0;
-// 		i++;
-// 	}
-// 	return (0);
-// }
-
 int	chargeimage(t_data *data)
 {
 	int	a;
@@ -74,6 +53,18 @@ int	chargeimage(t_data *data)
 	return (1);
 }
 
+void	nullinit(t_data **data)
+{
+	(*data)->mlx_ptr = NULL;
+	(*data)->win_ptr = NULL;
+	(*data)->image->perso = NULL;
+	(*data)->image->exit = NULL;
+	(*data)->image->item = NULL;
+	(*data)->image->mur = NULL;
+	(*data)->image->sol = NULL;
+	(*data)->stmap->map2 = NULL;
+}
+
 int	structinit(t_data **data, char *file)
 {
 	(*data) = malloc(sizeof(t_data));
@@ -85,14 +76,7 @@ int	structinit(t_data **data, char *file)
 	(*data)->image = malloc(sizeof(t_image));
 	if (!(*data)->image)
 		return (0);
-	(*data)->mlx_ptr = NULL;
-	(*data)->win_ptr = NULL;
-	(*data)->image->perso = NULL;
-	(*data)->image->exit = NULL;
-	(*data)->image->item = NULL;
-	(*data)->image->mur = NULL;
-	(*data)->image->sol = NULL;
-	(*data)->stmap->map2 = NULL;
+	nullinit(data);
 	(*data)->stmap->map = get_map(file);
 	if (!(*data)->stmap->map)
 		return (0);

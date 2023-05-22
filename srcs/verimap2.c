@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:23:24 by emoreau           #+#    #+#             */
-/*   Updated: 2023/04/01 03:09:41 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 18:23:53 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ int	borchecker(char **map, int len)
 {
 	if (linecheck(*map, map[len - 1]) == 0)
 		return (0);
-	// if (sizecheck(**map, len) == 0)
-	// 	return (0);
 	if (colonecheck(map, sizecheck(map, len)) == 0)
 		return (0);
 	else

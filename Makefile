@@ -6,7 +6,7 @@
 #    By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 19:25:41 by emoreau           #+#    #+#              #
-#    Updated: 2023/04/11 18:08:38 by emoreau          ###   ########.fr        #
+#    Updated: 2023/05/22 18:27:48 by emoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,11 @@ SRCS	=	so_long.c\
 			init.c\
 			verimap.c\
 			verimap2.c\
-			mlximg.c
+			mlximg.c\
+			free.c\
+			move.c\
+			map.c
 
-# OBJS	=	$(addprefix $(SRC_DIR)/, $(SRCS:%.c=%.o))
-# OBJS = $(addprefix $(OBJ_DIR), $(SRCS:%.c=%.o))
 OBJS = $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 
 NAME	=	so_long

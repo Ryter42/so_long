@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:31:22 by emoreau           #+#    #+#             */
-/*   Updated: 2023/04/01 02:55:19 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 17:51:58 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	colonechr(char *str)
 
 int	linechr(char **str)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (ft_strchr(str[i], 'E') == NULL)
