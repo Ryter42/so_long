@@ -12,13 +12,6 @@
 
 #include "../includes/libft.h"
 
-// static int charset(char c, char set)
-// {
-//     if (c == set)
-//         return (1);
-// 	return (0);
-// }
-
 static int	nbword(char *s, char c)
 {
 	int	i;
@@ -90,21 +83,3 @@ char	**ft_split(char const *s, char c)
 	tab[j] = NULL;
 	return (tab);
 }
-
-/*
-int main()
-{
-	int i = 0;
-//	char c = ' ';
-//	char tab[] = "   tripouille     42    ";
-	char **test;
-	test = ft_split("", 'z');
-	while (test[i] != NULL)
-	{
-		printf("%s\n", test[i]);
-		i++;
-	}
-//	printf("%p\n", test[i]);
-	return 0;
-}
-*/

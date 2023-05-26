@@ -26,17 +26,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-/*
-int	main(void)
-{
-	void	*s;
-	int		i;
-
-	i = 0;
-	while (i < 3)
-	{
-		printf("%s", (char *) ft_memset(s, 49, 3));
-		i++;
-	}
-}
-*/

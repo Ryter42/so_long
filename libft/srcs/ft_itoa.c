@@ -66,13 +66,3 @@ char	*ft_itoa(int n)
 		nb[0] = '-';
 	return (nb);
 }
-
-/*
-int	main(void)
-{
-	char * nb = ft_itoa(-2147483648);
-	
-	printf("%s", nb);
-	free(nb);
-}
-*/

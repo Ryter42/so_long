@@ -19,13 +19,3 @@ int	ft_isdigit(int c)
 	else
 		return (0);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char c = '8';
-	int i = c;
-	printf("%d", ft_isdigit(c));
-
-}
-*/

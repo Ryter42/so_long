@@ -24,22 +24,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
-
-/*
-int		main(void)
-{
-	t_list elm1;
-	t_list elm2;
-	t_list elm3;
-	
-	elm1 = malloc(sizeof(t_list));
-	elm2 = malloc(sizeof(t_list));
-	elm3 = malloc(sizeof(t_list));
-
-	
-	elm1.next = &elm2;
-	elm2.next = &elm3;
-	elm3.next = NULL;
-	printf("%d", ft_lstsize(&elm1));
-}
-*/

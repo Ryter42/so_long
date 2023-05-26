@@ -31,13 +31,3 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	}
 	return (NULL);
 }
-
-/*
-int	main(void)
-{
-//		char * empty = (char*)"";
-	char tab1[50] = "aaabcabcd";
-	char tab2[50] = "cd";
-	printf("%s", ft_strnstr(tab1, tab2, 8));
-}
-*/

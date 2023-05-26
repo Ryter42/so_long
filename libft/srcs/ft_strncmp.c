@@ -27,10 +27,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	return (str1[i] - str2[i]);
 }
-
-/*int	main(void)
-{
-	char tab1[] = "test\200";
-	char tab2[] = "test\0";
-	printf ("%d", ft_strncmp(tab1, tab2, 6));
-}*/

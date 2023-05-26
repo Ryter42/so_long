@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:14:21 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/22 18:55:56 by emoreau          ###   ########.fr       */
+/*   Updated: 2022/11/24 14:17:32 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (s - i);
 }
 
-char	*ft_gnl_strjoin(char *s1, char *s2)
+char	*strfrjoin(char *s1, char *s2)
 {
 	char	*str;
 	size_t	i;

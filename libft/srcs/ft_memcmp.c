@@ -27,11 +27,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		i++;
 	return (c1[i] - c2[i]);
 }
-/*
-int	main(void)
-{
-	char tab1[] = "qwer5yuiop";
-	char tab2[] = "wertyuiop";
-	printf ("%d", ft_memcmp(tab1, tab2, 0));
-}
-*/

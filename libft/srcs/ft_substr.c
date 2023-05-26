@@ -12,18 +12,6 @@
 
 #include "../includes/libft.h"
 
-/*
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-*/
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
@@ -50,14 +38,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	des[i] = 0;
 	return (des);
 }
-
-/*
-int main (void)
-{
-	// char *str = ft_substr("yoyoyopalala", 7, 8);
-	// printf("%s", str);
-	char * str = strdup("1");
-	ft_substr(str, 42, 42000000);
-	return (0);
-}
-*/

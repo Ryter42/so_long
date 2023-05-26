@@ -53,7 +53,7 @@ char	**get_map(char *file)
 	tmp = get_next_line(fd);
 	while (tmp)
 	{
-		str = ft_gnl_strjoin(str, tmp);
+		str = strfrjoin(str, tmp);
 		free(tmp);
 		tmp = get_next_line(fd);
 	}
