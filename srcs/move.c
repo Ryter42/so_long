@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:58:59 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/22 18:16:34 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:23:47 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_haut(t_data *data)
 	if (verimove(data->stmap->map[data->stmap->y - 1][data->stmap->x],
 		data) == 0)
 	{
-		mlx_loop_end(data->mlx_ptr);
+		mlx_loop_end(data->mlx->mlx_ptr);
 		return (0);
 	}
 	if (verimove(data->stmap->map[data->stmap->y - 1][data->stmap->x],
@@ -53,7 +53,7 @@ int	ft_bas(t_data *data)
 	if (verimove(data->stmap->map[data->stmap->y + 1][data->stmap->x],
 		data) == 0)
 	{
-		mlx_loop_end(data->mlx_ptr);
+		mlx_loop_end(data->mlx->mlx_ptr);
 		return (0);
 	}
 	if (verimove(data->stmap->map[data->stmap->y + 1][data->stmap->x],
@@ -77,7 +77,7 @@ int	ft_gauche(t_data *data)
 	if (verimove(data->stmap->map[data->stmap->y][data->stmap->x - 1],
 		data) == 0)
 	{
-		mlx_loop_end(data->mlx_ptr);
+		mlx_loop_end(data->mlx->mlx_ptr);
 		return (0);
 	}
 	if (verimove(data->stmap->map[data->stmap->y][data->stmap->x - 1],
@@ -101,7 +101,7 @@ int	ft_droite(t_data *data)
 	if (verimove(data->stmap->map[data->stmap->y][data->stmap->x + 1],
 		data) == 0)
 	{
-		mlx_loop_end(data->mlx_ptr);
+		mlx_loop_end(data->mlx->mlx_ptr);
 		return (0);
 	}
 	if (verimove(data->stmap->map[data->stmap->y][data->stmap->x + 1],

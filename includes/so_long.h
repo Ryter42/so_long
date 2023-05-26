@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 00:54:22 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/22 18:02:49 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:43:44 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,18 @@ typedef struct s_image
 
 }			t_image;
 
-typedef struct s_data
+typedef struct s_mlx
 {
-	t_map	*stmap;
 	t_image	*image;
 	void	*mlx_ptr;
 	void	*win_ptr;
+
+}			t_mlx;
+
+typedef struct s_data
+{
+	t_map	*stmap;
+	t_mlx	*mlx;
 	int		nbr_move;
 
 }			t_data;
@@ -85,8 +91,9 @@ int 		ft_haut(t_data *data);
 int 		ft_bas(t_data *data);
 int 		ft_gauche(t_data *data);
 int 		ft_droite(t_data *data);
-void		free_all(t_data *data);
+void		ft_free(t_data *data);
 void		free_map(char **map);
+void 		free_mlx(t_data *data);
 void		free_image(t_data *data);
 
 #endif

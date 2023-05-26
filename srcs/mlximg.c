@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:07:19 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/22 18:12:51 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:47:59 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 int	putimg(t_data *data, char c, int x, int y)
 {
 	if (c == 'P')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->image->perso, x * 64, y * 64);
+		mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win_ptr,
+			data->mlx->image->perso, x * 64, y * 64);
 	if (c == 'E')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->image->exit,
-			x * 64, y * 64);
+		mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win_ptr,
+			data->mlx->image->exit, x * 64, y * 64);
 	if (c == 'C')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->image->item,
-			x * 64, y * 64);
+		mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win_ptr,
+			data->mlx->image->item, x * 64, y * 64);
 	if (c == '0')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->image->sol,
-			x * 64, y * 64);
+		mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win_ptr,
+			data->mlx->image->sol, x * 64, y * 64);
 	if (c == '1')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->image->mur,
-			x * 64, y * 64);
+		mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win_ptr,
+			data->mlx->image->mur, x * 64, y * 64);
 	return (0);
 }
 
@@ -55,7 +55,7 @@ int	chargewindow(t_data *data)
 int	touch(int keycode, t_data *data)
 {
 	if (keycode == 65307)
-		mlx_loop_end(data->mlx_ptr);
+		mlx_loop_end(data->mlx->mlx_ptr);
 	if (keycode == 119 || keycode == 65362)
 		ft_haut(data);
 	if (keycode == 115 || keycode == 65364)
@@ -69,15 +69,15 @@ int	touch(int keycode, t_data *data)
 
 int	mlx(t_data *data)
 {
-	data->mlx_ptr = mlx_init();
-	if (!data->mlx_ptr)
+	data->mlx->mlx_ptr = mlx_init();
+	if (!data->mlx->mlx_ptr)
 		exit(EXIT_FAILURE);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, data->stmap->c * 64,
+	data->mlx->win_ptr = mlx_new_window(data->mlx->mlx_ptr, data->stmap->c * 64,
 			data->stmap->l * 64, "So_long");
 	chargeimage(data);
 	chargewindow(data);
-	mlx_hook(data->win_ptr, 17, 0, mlx_loop_end, data->mlx_ptr);
-	mlx_key_hook(data->win_ptr, &touch, data);
-	mlx_loop(data->mlx_ptr);
+	mlx_hook(data->mlx->win_ptr, 17, 0, mlx_loop_end, data->mlx->mlx_ptr);
+	mlx_key_hook(data->mlx->win_ptr, &touch, data);
+	mlx_loop(data->mlx->mlx_ptr);
 	return (0);
 }

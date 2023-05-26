@@ -6,11 +6,12 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:27:06 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/22 18:27:59 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:03:35 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+#include <string.h>
 
 int	namemap(char *str)
 {

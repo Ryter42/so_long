@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:34:05 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/22 18:11:15 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:47:30 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,28 +40,28 @@ int	chargeimage(t_data *data)
 {
 	int	a;
 
-	data->image->perso = mlx_xpm_file_to_image(data->mlx_ptr,
+	data->mlx->image->perso = mlx_xpm_file_to_image(data->mlx->mlx_ptr,
 			"./XPM/basketeur.xpm", &a, &a);
-	data->image->exit = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/panier.xpm",
-			&a, &a);
-	data->image->item = mlx_xpm_file_to_image(data->mlx_ptr,
+	data->mlx->image->exit = mlx_xpm_file_to_image(data->mlx->mlx_ptr,
+			"./XPM/panier.xpm", &a, &a);
+	data->mlx->image->item = mlx_xpm_file_to_image(data->mlx->mlx_ptr,
 			"./XPM/ballon.xpm", &a, &a);
-	data->image->mur = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/arbre.xpm",
-			&a, &a);
-	data->image->sol = mlx_xpm_file_to_image(data->mlx_ptr, "./XPM/sol.xpm",
-			&a, &a);
+	data->mlx->image->mur = mlx_xpm_file_to_image(data->mlx->mlx_ptr,
+			"./XPM/arbre.xpm", &a, &a);
+	data->mlx->image->sol = mlx_xpm_file_to_image(data->mlx->mlx_ptr,
+			"./XPM/sol.xpm", &a, &a);
 	return (1);
 }
 
 void	nullinit(t_data **data)
 {
-	(*data)->mlx_ptr = NULL;
-	(*data)->win_ptr = NULL;
-	(*data)->image->perso = NULL;
-	(*data)->image->exit = NULL;
-	(*data)->image->item = NULL;
-	(*data)->image->mur = NULL;
-	(*data)->image->sol = NULL;
+	(*data)->mlx->mlx_ptr = NULL;
+	(*data)->mlx->win_ptr = NULL;
+	(*data)->mlx->image->perso = NULL;
+	(*data)->mlx->image->exit = NULL;
+	(*data)->mlx->image->item = NULL;
+	(*data)->mlx->image->mur = NULL;
+	(*data)->mlx->image->sol = NULL;
 	(*data)->stmap->map2 = NULL;
 }
 
@@ -73,8 +73,11 @@ int	structinit(t_data **data, char *file)
 	(*data)->stmap = malloc(sizeof(t_map));
 	if (!(*data)->stmap)
 		return (0);
-	(*data)->image = malloc(sizeof(t_image));
-	if (!(*data)->image)
+	(*data)->mlx = malloc(sizeof(t_mlx));
+	if (!(*data)->mlx)
+		return (0);
+	(*data)->mlx->image = malloc(sizeof(t_image));
+	if (!(*data)->mlx->image)
 		return (0);
 	nullinit(data);
 	(*data)->stmap->map = get_map(file);

@@ -6,33 +6,44 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:47:27 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/22 18:10:06 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/05/22 19:44:25 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	free_all(t_data *data)
+void	ft_free(t_data *data)
 {
-	if (data->stmap->map)
-		free_map(data->stmap->map);
-	if (data->stmap->map2)
-		free_map(data->stmap->map2);
+	if (!data)
+		return ;
 	if (data->stmap)
+	{
+		if (data->stmap->map)
+			free_map(data->stmap->map);
+		if (data->stmap->map2)
+			free_map(data->stmap->map2);
 		free(data->stmap);
-	if (data->image)
-		free_image(data);
-	if (data->win_ptr)
-	{
-		mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	}
-	if (data->mlx_ptr)
-	{
-		mlx_destroy_display(data->mlx_ptr);
-		free(data->mlx_ptr);
-	}
+	if (data->mlx)
+		free_mlx(data);
 	free(data);
+}
+
+void	free_mlx(t_data *data)
+{
+	if (data->mlx->image)
+		free_image(data);
+	if (data->mlx->win_ptr)
+	{
+		mlx_clear_window(data->mlx->mlx_ptr, data->mlx->win_ptr);
+		mlx_destroy_window(data->mlx->mlx_ptr, data->mlx->win_ptr);
+	}
+	if (data->mlx->mlx_ptr)
+	{
+		mlx_destroy_display(data->mlx->mlx_ptr);
+		free(data->mlx->mlx_ptr);
+	}
+	free(data->mlx);
 }
 
 void	free_map(char **map)
@@ -50,15 +61,15 @@ void	free_map(char **map)
 
 void	free_image(t_data *data)
 {
-	if (data->image->item)
-		mlx_destroy_image(data->mlx_ptr, data->image->item);
-	if (data->image->perso)
-		mlx_destroy_image(data->mlx_ptr, data->image->perso);
-	if (data->image->exit)
-		mlx_destroy_image(data->mlx_ptr, data->image->exit);
-	if (data->image->mur)
-		mlx_destroy_image(data->mlx_ptr, data->image->mur);
-	if (data->image->sol)
-		mlx_destroy_image(data->mlx_ptr, data->image->sol);
-	free(data->image);
+	if (data->mlx->image->item)
+		mlx_destroy_image(data->mlx->mlx_ptr, data->mlx->image->item);
+	if (data->mlx->image->perso)
+		mlx_destroy_image(data->mlx->mlx_ptr, data->mlx->image->perso);
+	if (data->mlx->image->exit)
+		mlx_destroy_image(data->mlx->mlx_ptr, data->mlx->image->exit);
+	if (data->mlx->image->mur)
+		mlx_destroy_image(data->mlx->mlx_ptr, data->mlx->image->mur);
+	if (data->mlx->image->sol)
+		mlx_destroy_image(data->mlx->mlx_ptr, data->mlx->image->sol);
+	free(data->mlx->image);
 }
