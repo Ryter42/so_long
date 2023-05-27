@@ -42,7 +42,7 @@ int	ft_haut(t_data *data)
 		data->stmap->map[data->stmap->y][data->stmap->x] = '0';
 		data->stmap->y--;
 		data->nbr_move++;
-		ft_printf("%d\n", data->nbr_move);
+		ft_printf("move : %d\n", data->nbr_move);
 	}
 	chargewindow(data);
 	return (1);
@@ -66,7 +66,7 @@ int	ft_bas(t_data *data)
 		data->stmap->map[data->stmap->y][data->stmap->x] = '0';
 		data->stmap->y++;
 		data->nbr_move++;
-		ft_printf("%d\n", data->nbr_move);
+		ft_printf("move : %d\n", data->nbr_move);
 	}
 	chargewindow(data);
 	return (1);
@@ -90,7 +90,7 @@ int	ft_gauche(t_data *data)
 		data->stmap->map[data->stmap->y][data->stmap->x] = '0';
 		data->stmap->x--;
 		data->nbr_move++;
-		ft_printf("%d\n", data->nbr_move);
+		ft_printf("move : %d\n", data->nbr_move);
 	}
 	chargewindow(data);
 	return (1);
@@ -114,7 +114,7 @@ int	ft_droite(t_data *data)
 		data->stmap->map[data->stmap->y][data->stmap->x] = '0';
 		data->stmap->x++;
 		data->nbr_move++;
-		ft_printf("%d\n", data->nbr_move);
+		ft_printf("move : %d\n", data->nbr_move);
 	}
 	chargewindow(data);
 	return (1);
