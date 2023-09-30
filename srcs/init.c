@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:34:05 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/22 19:47:30 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/09/29 20:44:01 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ int	chargeimage(t_data *data)
 
 	data->mlx->image->perso = mlx_xpm_file_to_image(data->mlx->mlx_ptr,
 			"./XPM/basketeur.xpm", &a, &a);
-	data->mlx->image->exit = mlx_xpm_file_to_image(data->mlx->mlx_ptr,
-			"./XPM/panier.xpm", &a, &a);
+	data->mlx->image->exit = mlx_xpm_file_to_image(data->mlx->mlx_ptr,"./XPM/panier.xpm", &a, &a);
 	data->mlx->image->item = mlx_xpm_file_to_image(data->mlx->mlx_ptr,
 			"./XPM/ballon.xpm", &a, &a);
 	data->mlx->image->mur = mlx_xpm_file_to_image(data->mlx->mlx_ptr,
